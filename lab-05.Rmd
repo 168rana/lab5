@@ -3,17 +3,12 @@ title: "Lab 05 - Nobel laureates"
 output: github_document
   
 ---
-Team Name:
+Team Name: Ds6
 
 Team Members - Name and Student ID
 
-1.
+1.Rana alshammmari / 2201000999
 
-2.
-
-3.
-
-4.
 
 
 
@@ -46,6 +41,9 @@ nobel <- read_csv("data/nobel.csv")
 ```{r}
 dim(nobel)
 ```
+observation is 935
+variables is 26
+
 
 Each row represents information about a nobel prize winner.
 
