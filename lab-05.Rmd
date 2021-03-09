@@ -98,7 +98,10 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 ## But of those US-based Nobel laureates, many were born in other countries
 
 ```{r}
-
+nobel_living_science %>%
+    ggplot(aes(x = country_us,y=category, fill =category)) +
+   geom_bar(stat = "identity", position = "dodge",
+  orientation =  "horizonta1")
 ```
 
 
@@ -107,7 +110,8 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 
 ```{r}
-
+nobel_living_science <- nobel_living_science %>%
+   mutate(born_country_us = if_else(bron_country == "USA", "USA" , "Other"))
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.d*
@@ -119,10 +123,13 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
     -   Your final visualization should contain a facet for each category.
     -   Within each facet, there should be a bar for whether the laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born in the US or not.
-    
+ yes , because in buzzfeed  we analyzing the data to search for more understanding the data and get information form it we go deep and deep and make a lot of filtrations to understanding the data   
 
 ```{r}
-
+nobel_living_science <- nobel_living_science %>%
+   mutate                                                      (born_country_us = if_else(bron_country == "USA", "USA" , "Other"))
+nobel_living_science%>%ggplot(aes(x = country_us,y=bron_contry_us , fill=category))
+geom_bar(stat ="identity", poition = "dodge" ,orientation = "horizontl")
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
@@ -133,7 +140,9 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 
 ```{r}
-
+nobel_living_science %>%
+fliter(bron_country_us=="other" ,conutry_us=="USA")%>%cnunt("bron_country")%>%
+  arrange(desc(n))
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
